@@ -33,7 +33,10 @@ namespace TodoApi.Controllers
     [HttpGet]
     public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems()
     {
-      return await _context.TodoItems.ToListAsync();
+      IQueryable<TodoItem> todoItemsQ =
+      (from td in _context.TodoItems orderby td.IsComplete select td);
+
+      return await todoItemsQ.AsNoTracking().ToListAsync();
     }
 
     [HttpPost]

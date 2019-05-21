@@ -1,0 +1,8 @@
+.delete {
+	display: inline-block;
+	color: red;
+	font-weight: bold;
+	cursor: pointer;
+	border: 2px red solid;
+	border-style: outset;
+}
